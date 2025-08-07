@@ -20,8 +20,16 @@
     gtag('js', new Date());
 
     gtag('config', 'G-PYVRSFMDRL');
-  </script>
 
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
@@ -32,6 +40,7 @@
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
 
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
@@ -51,7 +60,6 @@
             <div class="is-size-5 publication-authors">
               <span class="author-block">Anonymous Author(s)<span class="author-block">
             </div>
-
           </div>
         </div>
       </div>
@@ -62,13 +70,7 @@
     <div class="container is-max-desktop">
       <div class="hero-body">
         <img src="./static/images/teaser_a_b.png" width=100% />
-        <h2 class="subtitle has-text-centered">
-          BRiC is a test-time adaptation (TTA) framework for long-term motion generation, designed
-          to bridge the execution gap between autoregressive diffusion-based kinematic planners and physics-
-          based controllers. It enables (a) robust long-term goal-reaching, (b) reliable obstacle avoidance, and
-          (c) consistent human-scene interaction in simulation. The initial and final points were denoted by red
-          circles and yellow stars, respectively.
-        </h2>
+
       </div>
     </div>
   </section>
@@ -83,25 +85,14 @@
             <h2 class="title is-3">Abstract</h2>
             <div class="content has-text-justified">
               <p>
-                We propose BRiC, a novel test-time adaptation (TTA) framework that enables long-term human motion
-                generation by resolving execution discrepancies between diffusion-based kinematic motion planners and
-                reinforcement learning-based physics controllers.
+                We propose BRiC, a novel test-time adaptation (TTA) framework that enables long-term human motion generation by resolving execution discrepancies between diffusion-based kinematic motion planners and reinforcement learning-based physics controllers.
+                While diffusion models can generate diverse and expressive motions conditioned on text and scene context, they often produce physically implausible outputs, leading to execution drift during simulation.
+                To address this, BRiC dynamically adapts the physics controller to noisy motion plans at test time, while preserving pre-trained skills via a loss function that mitigates catastrophic forgetting.
               </p>
               <p>
-                While diffusion models can generate diverse and expressive
-                motions conditioned on text and scene context, they often produce physically implausible outputs,
-                leading to execution drift during simulation. To address this,
-                BRiC dynamically adapts the physics controller to noisy motion plans at test time
-                while preserving pre-trained skills through a loss function that mitigates catastrophic forgetting.
-              </p>
-              <p>
-                In addition, BRiC introduces a lightweight test-time guidance
-                mechanism that steers the diffusion model in the signal space without requiring
-                parameter updates. By combining both adaptation strategies, BRiC ensures consistent and physically
-                plausible executions across diverse environments. We validate
-                the effectiveness of BRiC on a variety of long-term tasks, including motion composition, obstacle
-                avoidance, and human-scene interaction, achieving state-of-the-art
-                performance on all benchmarks.
+                In addition, BRiC introduces a lightweight test-time guidance mechanism that steers the diffusion model in the signal space without updating its parameters.
+                By combining both adaptation strategies, BRiC ensures consistent and physically plausible long-term executions across diverse environments in an effective and efficient manner.
+                We validate the effectiveness of BRiC on a variety of long-term tasks, including motion composition, obstacle avoidance, and human-scene interaction, achieving state-of-the-art performance across all tasks.
               </p>
             </div>
           </div>
@@ -115,13 +106,11 @@
           <div class="column is-four-fifths">
             <h2 class="title is-3">Overall method</h2>
             <div class="content has-text-justified">
-              <img src="./static/images/overview_v2.png" width=100% />
+              <img src="./static/images/overview_v4.png" width=100% />
               <p>
-                BRiC enables robust execution of motion plans generated by a
-                diffusion based kinematic planner through test time adaptation of the physics based controller. (a)
-                The policy is adapted to the target motion plan distribution while avoiding catastrophic forgetting. (b)
-                The policy input state is transformed to account for noise present in physically inconsistent motion
-                plans.
+                Test-time adaptation and guidance bridge the distribution gap between the motion planner and physics based controller in an autoregressive manner.
+                Adaptation mitigates catastrophic forgetting and improves robustness, while guidance refines motion plans by optimizing task objectives. Before adaptation, the agent fails to track motion plans indicated by red dots.
+                After adaptation, it performs robust and successful motions.
               </p>
             </div>
           </div>
@@ -131,16 +120,86 @@
     </div>
   </section>
 
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column">
-          <div class="content">
-            <h2 class="title is-3">Text-to-Motion</h2>
-            <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/obstacle_avoidance_demo_video.mp4" type="video/mp4">
+  <!-- <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/steve.mp4"
+                      type="video/mp4">
             </video>
           </div>
+          <div class="item item-chair-tp">
+            <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/chair-tp.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-shiba">
+            <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/shiba.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-fullbody">
+            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/fullbody.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-blueshirt">
+            <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/blueshirt.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-mask">
+            <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/mask.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-coffee">
+            <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/coffee.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-toby">
+            <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/toby2.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered"></div>
+      <div class="hero-body">
+        <h2 class="title is-3">Text-to-Motion</h2>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-t2m1">
+              <video poster="" id="t2m1" autoplay controls muted loop playsinline width="100%">
+                <source src="./static/videos/ov.mp4"type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-chair-tp">
+              <video poster="" id="chair-tp" autoplay controls muted loop playsinline width="100%">
+                <source src="./static/videos/ov.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-shiba">
+              <video poster="" id="shiba" autoplay controls muted loop playsinline width="100%">
+                <source src="./static/videos/ov.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
         </div>
       </div>
 
@@ -163,7 +222,7 @@
           <div class="columns is-centered">
             <div class="column content">
               <video controls width="800" height="500" muted autoplay loop>
-                <source src="./static/videos/obstacle_avoidance_demo_video.mp4" type="video/mp4">
+                <source src="./static/videos/ov.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -185,13 +244,13 @@
     </div>
   </section>
 
-  <section class="section" id="BibTeX">
+  <!-- <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>
 </code></pre>
     </div>
-  </section>
+  </section> -->
 
 
   <footer class="footer">
