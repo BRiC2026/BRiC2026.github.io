@@ -112,19 +112,14 @@ body {
 
 .results-carousel {
   overflow: hidden;
-  padding-bottom: 10px;
-  padding-top: 5px;
-  margin-left:10%;
-  margin-right:10%;
 }
 
 .results-carousel .item {
-  /* margin: 5px; */
+  margin: 5px;
   overflow: hidden;
   border: 1px solid #bbb;
   border-radius: 10px;
   padding: 0;
-  margin-left:20%;
   font-size: 0;
 }
 
