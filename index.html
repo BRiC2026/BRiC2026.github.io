@@ -12,34 +12,78 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-PYVRSFMDRL');
 
     MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      },
-      svg: {
-        fontCache: 'global'
-      }
+      tex: { inlineMath: [["$", "$"], ["\\(", "\\)"]] },
+      svg: { fontCache: 'global' }
     };
   </script>
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="stylesheet" href="./static/css/custom.css">
   <link rel="icon" href="./static/images/favicon.svg">
+
+  <!-- Optional: keep using custom.css, or move the <style> block below into this file -->
+  <link rel="stylesheet" href="./static/css/custom.css">
+
+  <!-- Unify section widths via a single wrapper -->
+  <style>
+    .match-video-width {
+      width: 100%;
+      max-width: 960px;
+      /* Match Bulma's is-max-desktop on desktop */
+      margin: 0 auto;
+      padding-left: 1.5rem;
+      /* mimic Bulma container side padding */
+      padding-right: 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .match-video-width {
+        max-width: 960px;
+      }
+    }
+
+    @media (min-width: 1216px) {
+      .match-video-width {
+        max-width: 960px;
+      }
+    }
+
+    @media (min-width: 1408px) {
+      .match-video-width {
+        max-width: 960px;
+      }
+    }
+
+    /* Ensure videos fill the wrapper and columns don't shrink them */
+    .match-video-width video,
+    .match-video-width .results-carousel .item video {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+    }
+
+    /* Remove gutters if columns are used inside the wrapper */
+    .match-video-width .columns {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .match-video-width .column {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  </style>
 
   <script type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
@@ -52,348 +96,189 @@
 
 <body>
 
+  <!-- Hero Title -->
   <section class="hero">
     <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">BRIC: Bridging Kinematic Plans and Physical Control at Test Time
-            </h1>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">Anonymous Author(s)<span class="author-block">
-            </div>
-          </div>
+      <div class="match-video-width has-text-centered">
+        <h1 class="title is-1 publication-title">BRIC: Bridging Kinematic Plans and Physical Control at Test Time</h1>
+        <div class="is-size-5 publication-authors">
+          <span class="author-block">Anonymous Author(s)</span>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Teaser -->
   <section class="hero teaser">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <video class="video_input" id="bric_db_key013" autoplay controls muted loop width="100%">
+    <div class="hero-body">
+      <div class="match-video-width">
+        <video class="video_input" id="bric_db_key013" autoplay controls muted loop>
           <source src="./static/videos/bric_teaser.mp4" type="video/mp4">
         </video>
-
       </div>
     </div>
   </section>
 
-
+  <!-- Abstract -->
   <section class="section" style="background-color: rgb(246, 244, 244);">
-    <div class="container is-max-desktop">
-      <!-- Abstract. -->
-      <div class="hero-body">
-        <div class="columns is-centered has-text-centered">
-          <div class="column">
-            <h2 class="title is-3">Abstract</h2>
-            <div class="content has-text-justified">
-              <p>
-                We propose BRIC, a novel test-time adaptation (TTA) framework that enables long-term human motion
-                generation by resolving execution discrepancies between diffusion-based kinematic motion planners and
-                reinforcement learning-based physics controllers.
-                While diffusion models can generate diverse and expressive motions conditioned on text and scene
-                context, they often produce physically implausible outputs, leading to execution drift during
-                simulation.
-                To address this, BRIC dynamically adapts the physics controller to noisy motion plans at test time,
-                while preserving pre-trained skills via a loss function that mitigates catastrophic forgetting.
-                In addition, BRIC introduces a lightweight test-time guidance mechanism that steers the diffusion model
-                in the signal space without updating its parameters.
-                By combining both adaptation strategies, BRIC ensures consistent and physically plausible long-term
-                executions across diverse environments in an effective and efficient manner.
-                We validate the effectiveness of BRIC on a variety of long-term tasks, including motion composition,
-                obstacle avoidance, and human-scene interaction, achieving state-of-the-art performance across all
-                tasks
-              </p>
-              <!-- <p>
-                In addition, BRIC introduces a lightweight test-time guidance mechanism that steers the diffusion model
-                in the signal space without updating its parameters.
-                By combining both adaptation strategies, BRIC ensures consistent and physically plausible long-term
-                executions across diverse environments in an effective and efficient manner.
-                We validate the effectiveness of BRIC on a variety of long-term tasks, including motion composition,
-                obstacle avoidance, and human-scene interaction, achieving state-of-the-art performance across all
-                tasks.
-              </p> -->
-            </div>
-          </div>
-        </div>
+    <div class="match-video-width">
+      <h2 class="title is-3 has-text-centered">Abstract</h2>
+      <div class="content has-text-justified">
+        <p>
+          We propose BRIC, a novel test-time adaptation (TTA) framework that enables long-term human motion generation
+          by resolving execution discrepancies between diffusion-based kinematic motion planners and reinforcement
+          learning-based physics controllers. While diffusion models can generate diverse and expressive motions
+          conditioned on text and scene context, they often produce physically implausible outputs, leading to execution
+          drift during simulation. To address this, BRIC dynamically adapts the physics controller to noisy motion plans
+          at test time, while preserving pre-trained skills via a loss function that mitigates catastrophic forgetting.
+          In addition, BRIC introduces a lightweight test-time guidance mechanism that steers the diffusion model in the
+          signal space without updating its parameters. By combining both adaptation strategies, BRIC ensures consistent
+          and physically plausible long-term executions across diverse environments in an effective and efficient
+          manner. We validate the effectiveness of BRIC on a variety of long-term tasks, including motion composition,
+          obstacle avoidance, and human-scene interaction, achieving state-of-the-art performance across all tasks.
+        </p>
       </div>
-      <!--/ Abstract. -->
     </div>
   </section>
 
+  <!-- Overall Method -->
   <section class="section">
-    <div class="container is-max-desktop">
-      <!-- Overall method. -->
-      <div class="hero-body">
-        <div class="columns is-centered has-text-centered">
-          <div class="column">
-            <h2 class="title is-3">Overall Method</h2>
-            <div class="content has-text-justified">
-              <img src="./static/images/overview_v4.png" width=100% />
-              <p>
-                Test-time adaptation and guidance bridge the distribution gap between the motion planner and physics
-                based controller in an autoregressive manner.
-                Adaptation mitigates catastrophic forgetting and improves robustness, while guidance refines motion
-                plans by optimizing task objectives. Before adaptation, the agent fails to track motion plans indicated
-                by red dots.
-                After adaptation, it performs robust and successful motions.
-              </p>
-            </div>
-          </div>
-        </div>
+    <div class="match-video-width">
+      <h2 class="title is-3 has-text-centered">Overall Method</h2>
+      <div class="content has-text-justified">
+        <img src="./static/images/overview_v4.png" alt="Overview" style="width:100%;height:auto;" />
+        <p>
+          Test-time adaptation and guidance bridge the distribution gap between the motion planner and physics-based
+          controller in an autoregressive manner. Adaptation mitigates catastrophic forgetting and improves robustness,
+          while guidance refines motion plans by optimizing task objectives. Before adaptation, the agent fails to track
+          motion plans indicated by red dots. After adaptation, it performs robust and successful motions.
+        </p>
       </div>
-      <!--/ Overall method. -->
     </div>
   </section>
 
+  <!-- Effects of TTA + TTG -->
   <section class="section" style="background-color: rgb(246, 244, 244);">
-    <!-- <div class="container is-max-desktop"> -->
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <div class="columns is-centered has-text-centered">
-          <div class="column">
-            <h2 class="title is-3">The Effects of the Proposed Test-Time Adaptation and Guidance</h2>
-            <div class="content has-text-justified">
-              <p>
-                These videos present visual examples demonstrating the effectiveness of the proposed method.
-                The first video compares the baseline with BRIC after applying test-time adaptation (TTA) in the
-                text-to-motion
-                task.
-                The second video compares the baseline and BRIC in the HSI task, with both models incorporating
-                test-time guidance (TTG).
-                Both videos show the results before (early stage) and after TTA.
-                As can be seen, the policy with TTA follows the motion plan more reliably, and it is evident that
-                test-time
-                guidance alone is insufficient for successfully performing HSI without the accompaniment of TTA.
-              </p>
-            </div>
-          </div>
-        </div>
+    <div class="match-video-width">
+      <h2 class="title is-3 has-text-centered">The Effects of the Proposed Test-Time Adaptation and Guidance</h2>
+      <div class="content has-text-justified">
+        <p>
+          These videos present visual examples demonstrating the effectiveness of the proposed method. The first video
+          compares the baseline with BRIC after applying test-time adaptation (TTA) in the text-to-motion task. The
+          second video compares the baseline and BRIC in the HSI task, with both models incorporating test-time guidance
+          (TTG). Both videos show the results before (early stage) and after TTA. As can be seen, the policy with TTA
+          follows the motion plan more reliably, and it is evident that test-time guidance alone is insufficient for
+          successfully performing HSI without the accompaniment of TTA.
+        </p>
       </div>
     </div>
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <div class="columns is-centered has-text-centered">
-          <div class="container has-text-centered">
-            <div class="content has-text-centered">
-              <h4 class="title is-4">Baseline (DiP + PHC without TTA and TTG) vs. BRIC (Baseline with TTA)</h4>
-              <div class="container has-text-centered">
-                <div class="columns is-centered">
-                  <div class="column has-text-centered">
-                    <div class="column has-text-centered">
-                      <video class="video_input" autoplay controls muted loop width="100%">
-                        <source src="./static/videos/method_overview/comparison_baseline_and_bric_demo_video.mp4"
-                          type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="content has-text-centered">
-              <h4 class="title is-4">Baseline (DiP + PHC without TTA and TTG) + Test-time Guidance vs. BRIC (Baseline
-                with TTA and TTG)</h4>
-              <div class="container has-text-centered">
-                <div class="columns is-centered">
-                  <div class="column has-text-centered">
-                    <div class="column has-text-centered">
-                      <video class="video_input" autoplay controls muted loop width="100%">
-                        <source src="./static/videos/method_overview/comparison_baseline_and_bric_demo_video_tta.mp4"
-                          type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+    <div class="match-video-width" style="margin-top: 1.5rem;">
+      <h4 class="title is-4 has-text-centered">Baseline (DiP + PHC without TTA and TTG) vs. BRIC (Baseline with TTA)
+      </h4>
+      <video class="video_input" autoplay controls muted loop>
+        <source src="./static/videos/method_overview/comparison_baseline_and_bric_demo_video.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="match-video-width" style="margin-top: 1.5rem;">
+      <h4 class="title is-4 has-text-centered">Baseline (DiP + PHC without TTA and TTG) + Test-time Guidance vs. BRIC
+        (Baseline with TTA and TTG)</h4>
+      <video class="video_input" autoplay controls muted loop>
+        <source src="./static/videos/method_overview/comparison_baseline_and_bric_demo_video_tta.mp4" type="video/mp4">
+      </video>
     </div>
   </section>
 
+  <!-- Qualitative Results -->
   <section class="section">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <div class="columns is-centered has-text-centered">
-          <div class="container is-max-desktop">
-            <h2 class="title is-3">Qualitative Results</h2>
-            <div class="content has-text-centered">
-              <h4 class="title is-4">Text-to-Motion</h4>
-              <div id="qualitative-result-t2m" class="carousel results-carousel">
-                <div class="item">
-                  <video class="" autoplay controls muted loop height="100%">
-                    <source src="./static/videos/text2motion/qual_bric_25th_db_key024_demo_video.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="item">
-                  <video class="" autoplay controls muted loop height="100%">
-                    <source src="./static/videos/text2motion/qual_bric_45th_db_key044_demo_video.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="item">
-                  <video class="" autoplay controls muted loop height="100%">
-                    <source src="./static/videos/text2motion/qual_bric_46th_db_key045_demo_video.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="item">
-                  <video class="" autoplay controls muted loop height="100%">
-                    <source src="./static/videos/text2motion/qual_bric_58th_db_key057_demo_video.mp4" type="video/mp4">
-                  </video>
-                </div>
-              </div>
-            </div>
+    <div class="match-video-width">
+      <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
+
+      <div class="content has-text-centered">
+        <h4 class="title is-4">Text-to-Motion</h4>
+        <div id="qualitative-result-t2m" class="carousel results-carousel">
+          <div class="item">
+            <video autoplay controls muted loop>
+              <source src="./static/videos/text2motion/qual_bric_25th_db_key024_demo_video.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video autoplay controls muted loop>
+              <source src="./static/videos/text2motion/qual_bric_45th_db_key044_demo_video.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video autoplay controls muted loop>
+              <source src="./static/videos/text2motion/qual_bric_46th_db_key045_demo_video.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video autoplay controls muted loop>
+              <source src="./static/videos/text2motion/qual_bric_58th_db_key057_demo_video.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
       </div>
 
-      <div class="hero-body">
-        <div class="columns is-centered has-text-centered">
-          <div class="container has-text-centered">
+      <div class="content has-text-centered" style="margin-top: 1.5rem;">
+        <h4 class="title is-4">Goal-Reaching</h4>
+        <video class="video_input" autoplay controls muted loop>
+          <source src="./static/videos/goal_reach/qual_bric_demo_video.mp4" type="video/mp4">
+        </video>
+      </div>
 
-            <div class="content has-text-centered">
-              <h4 class="title is-4">Goal-Reaching</h4>
-              <div class="container has-text-centered">
-                <div class="columns is-centered">
-                  <div class="column has-text-centered">
-                    <div class="column has-text-centered">
-                      <video class="video_input" autoplay controls muted loop width="100%">
-                        <source src="./static/videos/goal_reach/qual_bric_demo_video.mp4" type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div class="content has-text-centered" style="margin-top: 1.5rem;">
+        <h4 class="title is-4">Obstacle Avoidance</h4>
+        <video class="video_input" autoplay controls muted loop>
+          <source src="./static/videos/obstacle_avoidance/qual_bric_demo_video.mp4" type="video/mp4">
+        </video>
+      </div>
 
-
-            <div class="content has-text-centered">
-              <h4 class="title is-4">Obstacle Avoidance</h4>
-              <div class="container has-text-centered">
-                <div class="columns is-centered">
-                  <div class="column has-text-centered">
-                    <div class="column has-text-centered">
-                      <video class="video_input" autoplay controls muted loop width="100%">
-                        <source src="./static/videos/obstacle_avoidance/qual_bric_demo_video.mp4" type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="content has-text-centered">
-              <h4 class="title is-4">Human Scene Interaction</h4>
-              <div class="container has-text-centered">
-                <div class="columns is-centered">
-                  <div class="column has-text-centered">
-                    <div class="column has-text-centered">
-                      <video class="video_input" autoplay controls muted loop width="100%">
-                        <source src="./static/videos/human_scene_interaction/bric_hsi_qualitative.mp4" type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+      <div class="content has-text-centered" style="margin-top: 1.5rem;">
+        <h4 class="title is-4">Human Scene Interaction</h4>
+        <video class="video_input" autoplay controls muted loop>
+          <source src="./static/videos/human_scene_interaction/bric_hsi_qualitative.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
   </section>
 
-
+  <!-- Comparison with Other Methods -->
   <section class="section" style="background-color: rgb(246, 244, 244);">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <div class="columns is-centered has-text-centered">
-          <div class="container has-text-centered">
-            <h2 class="title is-3">Comparison with Other Methods</h2>
+    <div class="match-video-width">
+      <h2 class="title is-3 has-text-centered">Comparison with Other Methods</h2>
 
-            <div class="content has-text-centered">
-              <h4 class="title is-4">Goal-Reaching</h4>
-              <div class="container has-text-centered">
-                <div class="columns is-centered">
-                  <div class="column has-text-centered">
-                    <div class="column has-text-centered">
-                      <video class="video_input" autoplay controls muted loop width="100%">
-                        <source src="./static/videos/goal_reach/comparison_bric_and_maskedmimic_demo_video.mp4"
-                          type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="content has-text-centered">
-              <h4 class="title is-4">Human Scene Interaction</h4>
-              <div class="container has-text-centered">
-                <div class="columns is-centered">
-                  <div class="column has-text-centered">
-                    <div class="column has-text-centered">
-                      <video class="video_input" autoplay controls muted loop width="100%">
-                        <source src="./static/videos/human_scene_interaction/comparison_bric_and_closd.mp4"
-                          type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- <div class="match-video-width">
-        <h2 class="title is-3 has-text-centered">Comparison with Other Methods</h2>
-        <h4 class="title is-4 has-text-centered">Goal-Reaching</h4>
-        <video class="video_input" autoplay controls muted loop width="100%">
+      <div class="content has-text-centered">
+        <h4 class="title is-4">Goal-Reaching</h4>
+        <video class="video_input" autoplay controls muted loop>
           <source src="./static/videos/goal_reach/comparison_bric_and_maskedmimic_demo_video.mp4" type="video/mp4">
         </video>
       </div>
 
-      <div class="match-video-width" style="margin-top:2rem;">
-        <h4 class="title is-4 has-text-centered">Human Scene Interaction</h4>
-        <video class="video_input" autoplay controls muted loop width="100%">
+      <div class="content has-text-centered" style="margin-top: 1.5rem;">
+        <h4 class="title is-4">Human Scene Interaction</h4>
+        <video class="video_input" autoplay controls muted loop>
           <source src="./static/videos/human_scene_interaction/comparison_bric_and_closd.mp4" type="video/mp4">
         </video>
-      </div> -->
-
+      </div>
     </div>
   </section>
 
-  <!-- <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>
-</code></pre>
-    </div>
-  </section> -->
-
-
+  <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-
-      <div class="columns is-centered">
-        <div class="column is-8">
-          <div class="content">
-            <p>
-              This website is licensed under a <a rel="license"
-                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-                Commons Attribution-ShareAlike 4.0 International License</a>.
-            </p>
-            <p>
-              Website source code based on the <a href="https://nerfies.github.io">Nerfies</a>project page. If you want
-              to reuse their <a href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them
-              appropriately.
-            </p>
-          </div>
-        </div>
+    <div class="match-video-width">
+      <div class="content">
+        <p>
+          This website is licensed under a <a rel="license"
+            href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0
+            International License</a>.
+        </p>
+        <p>
+          Website source code based on the <a href="https://nerfies.github.io">Nerfies</a> project page. If you want to
+          reuse their <a href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them
+          appropriately.
+        </p>
       </div>
     </div>
   </footer>
