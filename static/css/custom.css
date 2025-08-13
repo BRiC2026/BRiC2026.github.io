@@ -1,0 +1,27 @@
+/* 두 섹션 모두 이 래퍼를 쓰면 폭이 동일해집니다. */
+.match-video-width {
+    width: 100%;
+    max-width: 960px;
+    /* Qualitative Results와 똑같이 맞추고 싶다면 960px */
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    /* Bulma container 기본 좌우 패딩 느낌 유지 (원하면 0으로) */
+}
+
+/* 중첩 columns/column이 비디오를 더 좁게 만드는 걸 방지 */
+.match-video-width .columns {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.match-video-width .column {
+    padding: 0;
+}
+
+/* 비디오는 래퍼 너비를 꽉 채움 */
+.match-video-width video {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
