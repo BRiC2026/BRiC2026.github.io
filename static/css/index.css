@@ -112,6 +112,7 @@ body {
 
 .results-carousel {
   overflow: hidden;
+  width: 100% !important;
 }
 
 .results-carousel .item {
@@ -121,7 +122,6 @@ body {
   border-radius: 10px;
   padding: 0;
   font-size: 0;
-
 }
 
 .results-carousel video {

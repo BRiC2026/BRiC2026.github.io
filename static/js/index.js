@@ -32,6 +32,10 @@ $(document).ready(function() {
     var options = {
 			slidesToScroll: 1,
 			slidesToShow: 1,
+      breakpoints:[],
+      navigation: true,
+      pagination: true,
+      pauseOnHover: true,
 			loop: true,
 			infinite: true,
 			autoplay: false,
