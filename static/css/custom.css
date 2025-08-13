@@ -1,7 +1,7 @@
 /* 두 섹션 모두 이 래퍼를 쓰면 폭이 동일해집니다. */
 .match-video-width {
     width: 100%;
-    max-width: 1024px;
+    max-width: 1280px;
     /* Qualitative Results와 똑같이 맞추고 싶다면 960px */
     margin: 0 auto;
     padding: 0 1.5rem;
