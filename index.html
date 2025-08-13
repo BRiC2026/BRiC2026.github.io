@@ -96,8 +96,15 @@
                 simulation.
                 To address this, BRIC dynamically adapts the physics controller to noisy motion plans at test time,
                 while preserving pre-trained skills via a loss function that mitigates catastrophic forgetting.
+                In addition, BRIC introduces a lightweight test-time guidance mechanism that steers the diffusion model
+                in the signal space without updating its parameters.
+                By combining both adaptation strategies, BRIC ensures consistent and physically plausible long-term
+                executions across diverse environments in an effective and efficient manner.
+                We validate the effectiveness of BRIC on a variety of long-term tasks, including motion composition,
+                obstacle avoidance, and human-scene interaction, achieving state-of-the-art performance across all
+                tasks
               </p>
-              <p>
+              <!-- <p>
                 In addition, BRIC introduces a lightweight test-time guidance mechanism that steers the diffusion model
                 in the signal space without updating its parameters.
                 By combining both adaptation strategies, BRIC ensures consistent and physically plausible long-term
@@ -105,7 +112,7 @@
                 We validate the effectiveness of BRIC on a variety of long-term tasks, including motion composition,
                 obstacle avoidance, and human-scene interaction, achieving state-of-the-art performance across all
                 tasks.
-              </p>
+              </p> -->
             </div>
           </div>
         </div>
@@ -140,7 +147,7 @@
 
   <section class="section" style="background-color: rgb(246, 244, 244);">
     <!-- <div class="container is-max-desktop"> -->
-    <div class="container is-fluid">
+    <div class="container is-fluid" style="max-width: 1200px; margin: 0 auto;">
       <!-- TTG -->
       <div class="hero-body">
         <div class="columns is-centered has-text-centered">
@@ -154,7 +161,7 @@
                 <div class="columns is-centered">
                   <div class="column has-text-centered">
                     <div class="column has-text-centered">
-                      <video class="video_input" autoplay controls muted loop width="100%">
+                      <video class="video_input" autoplay controls muted loop style="width: 100%; height: auto;">
                         <source src="./static/videos/method_overview/comparison_baseline_and_bric_demo_video.mp4"
                           type="video/mp4">
                       </video>
@@ -169,7 +176,7 @@
                 <div class="columns is-centered">
                   <div class="column has-text-centered">
                     <div class="column has-text-centered">
-                      <video class="video_input" autoplay controls muted loop width="100%">
+                      <video class="video_input" autoplay controls muted loop style="width: 100%; height: auto;">
                         <source src="./static/videos/method_overview/method_overview_tta.mp4" type="video/mp4">
                       </video>
                     </div>
