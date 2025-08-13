@@ -121,7 +121,7 @@
       <!--/ Abstract. -->
     </div>
   </section>
-  
+
   <section class="section">
     <div class="container is-max-desktop">
       <!-- Overall method. -->
@@ -160,10 +160,11 @@
                 The first video compares the baseline with BRIC after applying test-time adaptation (TTA) in the
                 text-to-motion
                 task.
-                The second video compares the baseline and BRIC in the HSI task, with both models incorporating test-time
-                guidance.
+                The second video compares the baseline and BRIC in the HSI task, with both models incorporating
+                test-time guidance (TTG).
                 Both videos show the results before (early stage) and after TTA.
-                As can be seen, the policy with TTA follows the motion plan more reliably, and it is evident that test-time
+                As can be seen, the policy with TTA follows the motion plan more reliably, and it is evident that
+                test-time
                 guidance alone is insufficient for successfully performing HSI without the accompaniment of TTA.
               </p>
             </div>
@@ -176,13 +177,14 @@
         <div class="columns is-centered has-text-centered">
           <div class="container has-text-centered">
             <div class="content has-text-centered">
-              <h4 class="title is-4">Baseline vs. After TTA</h4>
+              <h4 class="title is-4">Baseline (DiP + PHC without TTA and TTG) vs. BRIC (Baseline with TTA)</h4>
               <div class="container has-text-centered">
                 <div class="columns is-centered">
                   <div class="column has-text-centered">
                     <div class="column has-text-centered">
                       <video class="video_input" autoplay controls muted loop width="100%">
-                        <source src="./static/videos/method_overview/comparison_baseline_and_bric_demo_video.mp4" type="video/mp4">
+                        <source src="./static/videos/method_overview/comparison_baseline_and_bric_demo_video.mp4"
+                          type="video/mp4">
                       </video>
                     </div>
                   </div>
@@ -190,13 +192,15 @@
               </div>
             </div>
             <div class="content has-text-centered">
-              <h4 class="title is-4">Baseline + Test-time Guidance vs. After TTA + Test-time Guidance</h4>
+              <h4 class="title is-4">Baseline (DiP + PHC without TTA and TTG) + Test-time Guidance vs. BRIC (Baseline
+                with TTA and TTG)</h4>
               <div class="container has-text-centered">
                 <div class="columns is-centered">
                   <div class="column has-text-centered">
                     <div class="column has-text-centered">
                       <video class="video_input" autoplay controls muted loop width="100%">
-                        <source src="./static/videos/method_overview/comparison_baseline_and_bric_demo_video_tta.mp4" type="video/mp4">
+                        <source src="./static/videos/method_overview/comparison_baseline_and_bric_demo_video_tta.mp4"
+                          type="video/mp4">
                       </video>
                     </div>
                   </div>
@@ -316,7 +320,8 @@
                   <div class="column has-text-centered">
                     <div class="column has-text-centered">
                       <video class="video_input" autoplay controls muted loop width="100%">
-                        <source src="./static/videos/goal_reach/comparison_bric_and_maskedmimic_demo_video.mp4" type="video/mp4">
+                        <source src="./static/videos/goal_reach/comparison_bric_and_maskedmimic_demo_video.mp4"
+                          type="video/mp4">
                       </video>
                     </div>
                   </div>
@@ -331,7 +336,8 @@
                   <div class="column has-text-centered">
                     <div class="column has-text-centered">
                       <video class="video_input" autoplay controls muted loop width="100%">
-                        <source src="./static/videos/human_scene_interaction/comparison_bric_and_closd.mp4" type="video/mp4">
+                        <source src="./static/videos/human_scene_interaction/comparison_bric_and_closd.mp4"
+                          type="video/mp4">
                       </video>
                     </div>
                   </div>
