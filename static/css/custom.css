@@ -1,13 +1,9 @@
-/* 1200px 기준 공통 래퍼: 섹션 폭을 통일 */
 .match-video-width {
-    /* 뷰포트가 작을 땐 100%, 넓어지면 1200px까지만 확장 */
     width: min(100%, 1200px);
     margin-inline: auto;
-    /* 좌우 패딩을 화면 크기에 따라 부드럽게 변화 */
     padding-inline: clamp(12px, 4vw, 24px);
 }
 
-/* 비디오/이미지 등 미디어 요소는 부모 래퍼 폭을 꽉 채움 */
 .match-video-width video,
 .match-video-width img,
 .match-video-width canvas {
@@ -16,7 +12,6 @@
     height: auto;
 }
 
-/* (선택) 제목/본문 폰트도 미디어쿼리 없이 유연하게 */
 .match-video-width .title.is-1 {
     font-size: clamp(2rem, 4.5vw, 3rem);
 }
@@ -33,7 +28,6 @@
     font-size: clamp(0.95rem, 1.8vw, 1.05rem);
 }
 
-/* Bulma columns를 여전히 쓰는 경우, 래퍼 내부에서 여백이 폭을 깎지 않도록 */
 .match-video-width .columns {
     margin-left: 0;
     margin-right: 0;
@@ -44,7 +38,6 @@
     padding-right: 0;
 }
 
-/* 캐러셀 내부 비디오도 동일 규칙 적용 */
 .match-video-width .results-carousel .item video {
     width: 100%;
     height: auto;
