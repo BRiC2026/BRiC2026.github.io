@@ -165,10 +165,10 @@
         <p>
           These videos present visual examples demonstrating the effectiveness of the proposed method. The first video
           compares the baseline with BRIC after applying test-time adaptation (TTA) in the text-to-motion task. The
-          second video compares the baseline and BRIC in the HSI task, with both models incorporating test-time guidance
-          (TTG). Both videos show the results before (early stage) and after TTA. As can be seen, the policy with TTA
-          follows the motion plan more reliably, and it is evident that test-time guidance alone is insufficient for
-          successfully performing HSI without the accompaniment of TTA.
+          second video compares the baseline, which does not use TTA but incorporates test-time guidance (TTG), with
+          BRIC, which employs both TTA and TTG, in the HSI task. Both videos show the results before (early stage) and
+          after TTA. As can be seen, the policy with TTA follows the motion plan more reliably, and it is evident that
+          test-time guidance alone is insufficient for successfully performing HSI without the accompaniment of TTA.
         </p>
       </div>
     </div>
@@ -266,17 +266,16 @@
   </section>
 
   <!-- Reference Section Template -->
-  <section class="section" >
+  <section class="section">
     <div class="match-video-width">
       <h2 class="title is-3 has-text-centered">References</h2>
       <div class="content">
         <ol>
           <li>Tevet et al., <em>"CLoSD: Closing the Loop between Simulation and Diffusion for multi-task character
-              control"</em>, International Conference on Learning Representations, 2025. <a
-              href="https://arxiv.org/pdf/2410.03441">[PDF]</a></li>
+              control"</em>, International Conference on Learning Representations, 2025.
+          </li>
           <li>Tessler et al., <em>"MaskedMimic: Unified Physics-Based Character Control Through Masked Motion
-              Inpainting"</em>, SIGGRAPH Asia, 2024. <a
-              href="https://research.nvidia.com/labs/par/maskedmimic/assets/SIGGRAPHAsia2024_MaskedMimic.pdf">[PDF]</a>
+              Inpainting"</em>, SIGGRAPH Asia, 2024.
           </li>
         </ol>
       </div>
