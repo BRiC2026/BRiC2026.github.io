@@ -34,56 +34,6 @@
   <!-- Optional: keep using custom.css, or move the <style> block below into this file -->
   <link rel="stylesheet" href="./static/css/custom.css">
 
-  <!-- Unify section widths via a single wrapper -->
-  <!-- <style>
-    .match-video-width {
-      width: 100%;
-      max-width: 1200px;
-      /* Match Bulma's is-max-desktop on desktop */
-      margin: 0 auto;
-      padding-left: 1.5rem;
-      /* mimic Bulma container side padding */
-      padding-right: 1.5rem;
-    }
-
-    @media (min-width: 1024px) {
-      .match-video-width {
-        max-width: 960px;
-      }
-    }
-
-    @media (min-width: 1216px) {
-      .match-video-width {
-        max-width: 960px;
-      }
-    }
-
-    @media (min-width: 1408px) {
-      .match-video-width {
-        max-width: 960px;
-      }
-    }
-
-    /* Ensure videos fill the wrapper and columns don't shrink them */
-    .match-video-width video,
-    .match-video-width .results-carousel .item video {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-width: 100%;
-    }
-
-    /* Remove gutters if columns are used inside the wrapper */
-    .match-video-width .columns {
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    .match-video-width .column {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  </style> -->
   <style>
     /* 이 섹션 안의 영상만 절반 너비 */
     #ttg .video_ttg_input {
@@ -209,7 +159,7 @@
       </video>
     </div>
 
-    <div class="match-video-width" id="ttg" style="margin-top: 1.5rem;">
+    <!-- <div class="match-video-width" id="ttg" style="margin-top: 1.5rem;">
       <h2 class="title is-3 has-text-centered">The Effects of the Proposed Test-Time Guidance</h2>
       <div class="content has-text-justified">
         <p>
@@ -237,6 +187,36 @@
         <video class="video_ttg_input" autoplay controls muted loop playsinline>
           <source src="./static/videos/obstacle_avoidance/signal_ttg_bric_demo_video.mp4" type="video/mp4">
         </video>
+      </div>
+    </div> -->
+    <div class="match-video-width" id="ttg" style="margin-top: 1.5rem;">
+      <h2 class="title is-3 has-text-centered">The Effects of the Proposed Test-Time Guidance</h2>
+      <div class="content has-text-justified">
+        <p>
+          This video shows the efficiency of the proposed signal space test-time guidance (TTG). <br>
+          The purple and blue humanoids visualize policy executions under TTA with latent-space-based and
+          signal-space-based TTG, respectively. <br>
+          The intermittently displayed on-screen label "Latency: XX s" indicates the time for diffusion-model sampling
+          with TTG. <br>
+          As the proposed TTG avoids backpropagation through the diffusion model, the sampling time is approximately
+          twofold faster than with latent-space-based TTG.
+        </p>
+      </div>
+
+      <div class="columns is-variable is-6 is-vcentered is-multiline" style="margin-top:1.5rem;">
+        <div class="column is-6">
+          <h4 class="title is-4 has-text-centered">Latent Space-based Test-time Guidance</h4>
+          <video class="video_ttg_input" autoplay controls muted loop playsinline>
+            <source src="./static/videos/obstacle_avoidance/latent_ttg_bric_demo_video.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="column is-6">
+          <h4 class="title is-4 has-text-centered">Signal Space-based Test-time Guidance (Proposed)</h4>
+          <video class="video_ttg_input" autoplay controls muted loop playsinline>
+            <source src="./static/videos/obstacle_avoidance/signal_ttg_bric_demo_video.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
     </div>
   </section>
