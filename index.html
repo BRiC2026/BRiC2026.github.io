@@ -84,6 +84,25 @@
       padding-right: 0;
     }
   </style> -->
+  <style>
+    /* 이 섹션 안의 영상만 절반 너비 */
+    #ttg .video_ttg_input {
+      width: 50%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      /* 가운데 정렬 */
+      aspect-ratio: 16 / 9;
+      /* 필요 시 비율 고정 */
+    }
+
+    /* 모바일에서는 다시 꽉 채우기 */
+    @media (max-width: 768px) {
+      #ttg .video_ttg_input {
+        width: 100%;
+      }
+    }
+  </style>
 
   <script type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
@@ -190,7 +209,7 @@
       </video>
     </div>
 
-    <div class="match-video-width">
+    <div class="match-video-width" id="ttg">
       <h2 class="title is-3 has-text-centered">The Effects of the Proposed Test-Time Guidance</h2>
       <div class="content has-text-justified">
         <p>
@@ -202,14 +221,14 @@
     <div class="columns is-variable is-6 is-vcentered is-multiline" style="margin-top:1.5rem;">
       <div class="column is-6">
         <h4 class="title is-4 has-text-centered">Latent Space-based Test-time Guidance</h4>
-        <video class="video_input" autoplay controls muted loop playsinline style="width:100%; height:auto;">
+        <video class="video_ttg_input" autoplay controls muted loop playsinline>
           <source src="./static/videos/obstacle_avoidance/latent_ttg_bric_demo_video.mp4" type="video/mp4">
         </video>
       </div>
 
       <div class="column is-6">
         <h4 class="title is-4 has-text-centered">Signal Space-based Test-time Guidance (Proposed)</h4>
-        <video class="video_input" autoplay controls muted loop playsinline style="width:100%; height:auto;">
+        <video class="video_ttg_input" autoplay controls muted loop playsinline>
           <source src="./static/videos/obstacle_avoidance/signal_ttg_bric_demo_video.mp4" type="video/mp4">
         </video>
       </div>
