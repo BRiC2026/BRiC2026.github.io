@@ -137,6 +137,7 @@
           text-to-motion task. <br>
           In the second video, both methods use test-time guidance (TTG); however, only BRIC applies TTA for the HSI
           task. <br>
+          In this context, the baseline refers to "DiP + PHC without TTA and TTG". <br>
           Each video shows results before (early stage) and after TTA. <br>
           As shown, the policy with TTA follows the motion plan more reliably, highlighting that test-time guidance
           alone is insufficient for successfully performing HSI without TTA.
@@ -145,7 +146,9 @@
     </div>
 
     <div class="match-video-width" style="margin-top: 1.5rem;">
-      <h4 class="title is-4 has-text-centered">Baseline (DiP + PHC without TTA and TTG) vs. BRIC (Baseline with TTA)
+      <!-- <h4 class="title is-4 has-text-centered">Baseline (DiP + PHC without TTA and TTG) vs. BRIC (Baseline with TTA) -->
+      <h4 class="title is-4 has-text-centered">Before applying TTA (Baseline) vs. After applying TTA (Baseline + TTA,
+        i.e, BRIC)
       </h4>
       <video class="video_input" autoplay controls muted loop>
         <source src="./static/videos/method_overview/comparison_baseline_and_bric_demo_video.mp4" type="video/mp4">
@@ -153,7 +156,9 @@
     </div>
 
     <div class="match-video-width" style="margin-top: 1.5rem;">
-      <h4 class="title is-4 has-text-centered">Baseline + TTG vs. BRIC</h4>
+      <!-- <h4 class="title is-4 has-text-centered">Baseline + TTG vs. BRIC</h4> -->
+      <h4 class="title is-4 has-text-centered">Before applying TTA (Baseline + TTG) vs. After applying TTA (Baseline +
+        TTG + TTA, i.e, BRIC)</h4>
       <video class="video_input" autoplay controls muted loop>
         <source src="./static/videos/method_overview/comparison_baseline_and_bric_demo_video_tta.mp4" type="video/mp4">
       </video>
